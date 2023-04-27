@@ -1,7 +1,7 @@
 # udc_cap
 Analysing coffee shop customers reaction and engagement with offers, and predicting future offer completions. 
 
-Please find the related blog post here: 
+Please find the related blog post here: https://medium.com/@abbie.wright1/analysing-the-impact-of-offers-dbf342b563d2
 
 # 1. Installations
 
