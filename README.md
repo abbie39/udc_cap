@@ -26,6 +26,7 @@ portfolio.json: contains offer ids and relevant metadata for each offer
 profile.json: contains demographic data for each customer all of whom are part of the Starbucks Rewards scheme
 transcript.json: records for transactions, offers received, offers viewed, and offers completed
 
+(The files cannot be uploaded to GitHub as they are too large)
 
 # 4. Technical details
 
