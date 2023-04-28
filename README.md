@@ -59,9 +59,15 @@ Finally we came to modelling. First we had to create dummy variables for the 'ev
 We removed whitespace from column names and dropped duplicate columns. 
 Then we split our data into X and y, where y was our target variable of the 'offer_completed' dummy column.
 
-We defined a function display_results which allows us to display the accuracy and f1score for a model. We chose to measure these metrics as accuracy is easy to interpret. But we also wanted to use the f1 score as it takes account of how data is distributed. 
+To perform hyperparameter tuning we used the GridSearchCV object. 
+For RandomForestClassifier the parameters that were tuned were n_estimators which is essentially the 'number of trees in the forest', and min_samples_split which is the minimum number of samples you need to split an internal node. The values tested for n_estimators were [50, 100, 200], with 50 being the optimal number of trees. For min_samples_split the values tested were [2, 3, 4] and the optimal was 2 samples in this case. 
+For the Naive Bayes approach I tested the var_smoothing estimator which is the amount of the largest variance of all features that will be added to variances to create stability. The values tested in this case were [1e-10, 1e-9, 1e-8], and 1e-10 was the best performing parameter.
 
-Then we defined random_forest_classifer and created a RandomForestClassifier model using X and y, by first splitting into train and test datasets, then fitting the model, predicting on the X_test set and using display_results to observe the accuracy and f1 score. We repeated this process for the Naive Bayes classifier too. We found both models had an accuracy and f1 score of 1.0, this suggests perfect scores which we should be skeptical of. A perfect score is most likely evidence of overfitting.  
+We defined a function display_results which allows us to display the accuracy and f1score for a model, as well as the best parameters defined by our GridSearchCV. We chose to measure these metrics as accuracy is easy to interpret. But we also wanted to use the f1 score as it takes account of how data is distributed. 
+
+Then we defined random_forest_classifer and created a RandomForestClassifier model using X and y, by first splitting into train and test datasets, then fitting the model, predicting on the X_test set and using display_results to observe the accuracy and f1 score. We repeated this process for the Naive Bayes classifier too. 
+
+We found both models had an accuracy and f1 score of 1.0, this suggests perfect scores which we should be skeptical of. A perfect score is most likely evidence of overfitting.  
 
 # 5. Licensing, Authors, Acknowledgements, etc.
 Acknowledgements: Completed as part of a Udacity Nanodegree programme, thank you to Udacity for the resources and links to the data.
